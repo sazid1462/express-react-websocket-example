@@ -7,14 +7,16 @@ const app = express();
 const server = http.createServer(app);
 const io = new SocketIOServer(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "http://frontend:3000"],
     methods: ["GET", "POST"],
+    credentials: true,
   },
 });
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "http://frontend:3000"],
+    credentials: true,
   })
 );
 
@@ -46,7 +48,7 @@ setInterval(() => {
   io.emit("notification", notification);
 }, 1 * 60 * 1000);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

@@ -26,14 +26,14 @@ docker-compose up
 
 The application will be available at:
 - Frontend: http://localhost:3000
-- Backend: http://localhost:5001
+- Backend: http://localhost:3001
 
 ## Architecture
 
 ### Backend (Express.js + TypeScript)
 - REST API endpoint at `/api/hello`
 - WebSocket server broadcasting notifications every minute
-- Running on port 5001
+- Running on port 3001
 - Type-safe request/response handling
 - CORS configured for frontend communication
 
@@ -87,7 +87,7 @@ npm run dev
 ## Environment Variables
 
 ### Backend
-- `PORT`: Server port (default: 5000)
+- `PORT`: Server port (default: 3001)
 - `NODE_ENV`: Environment mode
 
 ### Frontend

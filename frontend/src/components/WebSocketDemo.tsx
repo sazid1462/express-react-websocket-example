@@ -73,7 +73,7 @@ export default function WebSocketDemo() {
       </div>
 
       <div className="text-sm text-gray-500 mt-4">
-        <p>The server sends notifications every minute.</p>
+        <p>The server sends notifications every 30 seconds.</p>
       </div>
     </div>
   );

@@ -40,13 +40,13 @@ io.on("connection", (socket) => {
   });
 });
 
-// Broadcast notification every 5 minutes
+// Broadcast notification every 30 seconds
 setInterval(() => {
   const notification: NotificationMessage = {
     message: "Server notification: " + new Date().toLocaleString(),
   };
   io.emit("notification", notification);
-}, 1 * 60 * 1000);
+}, 1 * 30 * 1000);
 
 const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {

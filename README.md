@@ -48,7 +48,21 @@ The application will be available at:
 
 ## Development
 
-The project uses Docker volumes for development, so any changes you make to the source code will be reflected immediately in the running application.
+### Development with Docker (Recommended)
+
+```bash
+# Start the development environment
+docker compose -f docker-compose.dev.yml up --build
+
+# Stop the development environment
+docker compose -f docker-compose.dev.yml down
+```
+
+The development environment includes:
+- Hot reloading for both frontend and backend
+- Volume mounts for real-time code changes
+- Development-specific configurations
+- Isolated node_modules for each service
 
 ### Backend Development
 

@@ -25,12 +25,14 @@ docker-compose up
 ```
 
 The application will be available at:
+
 - Frontend: http://localhost:3000
 - Backend: http://localhost:3001
 
 ## Architecture
 
 ### Backend (Express.js + TypeScript)
+
 - REST API endpoint at `/api/hello`
 - WebSocket server broadcasting notifications every minute
 - Running on port 3001
@@ -38,6 +40,7 @@ The application will be available at:
 - CORS configured for frontend communication
 
 ### Frontend (Next.js + TypeScript)
+
 - Modern React application with server-side rendering
 - Custom WebSocket hook for real-time communication
 - Displays messages from `/api/hello` endpoint
@@ -48,7 +51,7 @@ The application will be available at:
 
 ## Development
 
-### Development with Docker (Recommended)
+### Development with Docker
 
 ```bash
 # Start the development environment
@@ -59,10 +62,21 @@ docker compose -f docker-compose.dev.yml down
 ```
 
 The development environment includes:
+
 - Hot reloading for both frontend and backend
 - Volume mounts for real-time code changes
 - Development-specific configurations
 - Isolated node_modules for each service
+
+**Note about Package Management:** When adding new packages to either frontend or backend, you'll need to rebuild the Docker containers:
+
+```bash
+# 1. Stop the containers
+docker compose -f docker-compose.dev.yml down
+
+# 2. Rebuild and start the containers
+docker compose -f docker-compose.dev.yml up --build
+```
 
 ### Backend Development
 
@@ -101,26 +115,31 @@ npm run dev
 ## Environment Variables
 
 ### Backend
+
 - `PORT`: Server port (default: 3001)
 - `NODE_ENV`: Environment mode
 
 ### Frontend
+
 - `NEXT_PUBLIC_BACKEND_URL`: Backend API URL
 - `PORT`: Frontend port (default: 3000)
 
 ## Features in Detail
 
 1. **Real-time Communication**
+
    - Server sends notifications every minute
    - WebSocket connection with automatic reconnection
    - Connection status monitoring
 
 2. **Type Safety**
+
    - Full TypeScript support
    - Typed WebSocket events
    - Type-safe API responses
 
 3. **Modern UI**
+
    - Responsive design with Tailwind CSS
    - Clean and intuitive interface
    - Real-time updates without page refresh
